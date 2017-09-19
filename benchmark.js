@@ -26,23 +26,23 @@ function binarySearch (search, array) {
   //  }
   //  return -1;
 
-   if(array.length == 1 && array[0] !== search) {
+  if(array.length == 1 && array[0] !== search) {
     return -1
   }
-  if(array.length == 1 ) {
-    return array[0]
-  }
+  // if(array.length == 1 ) {
+  //   return array[0]
+  // }
   if(array[Math.floor(array.length/2)] == search) {
     return array[Math.floor(array.length/2)]
-  } else if (array[0] === array [1] && array[0] === search) {
+  } else if (array.length == 1 || array[0] === array [1] && array[0] === search) {
     return array[0]
   } else if(search < array[Math.floor(array.length/2)]) {
     array.splice(Math.floor(array.length/2))
-    console.log(array)
+    // console.log(array)
     return binarySearch(search, array)
   } else if (search > array[Math.floor(array.length/2)]) {
     array.splice(0,Math.floor(array.length/2))
-    console.log(array)
+    // console.log(array)
     return binarySearch(search,array)
   }
 }
