@@ -9,21 +9,47 @@ for (var i=1;i<=1000000;i++) {
   arraySejuta.push(i);
 }
 // binary search
-function binary_search(search, array) {
-    var guess;
-    min = 0;
-    max = array.length - 1;	
+// function binary_search(search, array) {
+//     var guess;
+//     min = 0;
+//     max = array.length - 1;	
   
-    while(min <= max){
-      guess = Math.floor((min + max) /2);
-    if(array[guess] === search)
-    return guess;
-    else if(array[guess] < search)
-    min = guess + 1;
-    else
-    max = guess - 1;	
+//     while(min <= max){
+//       guess = Math.floor((min + max) /2);
+//     if(array[guess] === search)
+//     return guess;
+//     else if(array[guess] < search)
+//     min = guess + 1;
+//     else
+//     max = guess - 1;	
+//     }
+//     return -1;
+// }
+
+function binary_search (search, array) {
+  // Your searching code
+  var min = 0;
+  var max = array.length-1;
+  var mid = Math.floor((max+min)/2);
+
+  	if (array[mid] === search){
+  		return mid;
+    
+    } else if (array[mid] < search) {
+      // min = mid-1;
+      // console.log(array.slice(mid, max))
+      return binary_search(search, array.slice(mid, max))
+
+    } else if (array[mid] > search) {
+      // max = mid+1;
+      // console.log(array.slice(min, mid))
+      return binary_search(search, array.slice(min, mid))
+    
+    } else if (array[mid] !== search){
+
+      return -1;
     }
-    return -1;
+
 }
 
 // linear search
