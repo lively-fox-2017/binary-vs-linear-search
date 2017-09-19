@@ -6,23 +6,18 @@ var arraySatuK = []
 var arraySepuluhK = []
 var arraySejuta = []
 
-for (let i = 0; i < 1000; i++) {
-  arraySatuK.push(Math.floor(Math.random() * 1000));
+for (let i = 0; i < 100; i++) {
+  arraySatuK.push(i);
 }
 for (let i = 0; i < 10000; i++) {
-  arraySepuluhK.push(Math.floor(Math.random() * 1000));
+  arraySepuluhK.push(i);
 }
 for (let i = 0; i < 1000000; i++) {
-  arraySejuta.push(Math.floor(Math.random() * 1000));
+  arraySejuta.push(i);
 }
 
-// Sorting array
-arraySatuK = binary.ownSort(arraySatuK);
-arraySepuluhK = binary.ownSort(arraySepuluhK);
-arraySejuta = binary.ownSort(arraySejuta);
-
 let test = [arraySatuK, arraySepuluhK, arraySejuta];
-let search = Math.floor(Math.random() * 1000)
+let search = Math.floor(Math.random() * 100)
 let testNameBinary = ['Binary#test1K', 'Binary#test10K', 'Binary#testSejuta'];
 let testNameLinier = ['Linier#test1K', 'Linier#test10K', 'Linier#testSejuta'];
 
