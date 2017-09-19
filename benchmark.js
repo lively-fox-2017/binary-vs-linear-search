@@ -11,20 +11,40 @@ for (var i=1;i<=1000000;i++) {
 // binary search
 function binarySearch (search, array) {
   // Your searching code
-  var guess;
-  var min = 0;
-  var max = array.length - 1;
+  // var guess;
+  // var min = 0;
+  // var max = array.length - 1;
 
-  while(min <= max){
-    guess = Math.floor((min + max) /2);
-     if(array[guess] === search)
-      return guess;
-      else if(array[guess] < search)
-        min = guess + 1;
-      else
-        max = guess - 1;
-   }
-   return -1;
+  // while(min <= max){
+  //   guess = Math.floor((min + max) /2);
+  //    if(array[guess] === search)
+  //     return guess;
+  //     else if(array[guess] < search)
+  //       min = guess + 1;
+  //     else
+  //       max = guess - 1;
+  //  }
+  //  return -1;
+
+   if(array.length == 1 && array[0] !== search) {
+    return -1
+  }
+  if(array.length == 1 ) {
+    return array[0]
+  }
+  if(array[Math.floor(array.length/2)] == search) {
+    return array[Math.floor(array.length/2)]
+  } else if (array[0] === array [1] && array[0] === search) {
+    return array[0]
+  } else if(search < array[Math.floor(array.length/2)]) {
+    array.splice(Math.floor(array.length/2))
+    console.log(array)
+    return binarySearch(search, array)
+  } else if (search > array[Math.floor(array.length/2)]) {
+    array.splice(0,Math.floor(array.length/2))
+    console.log(array)
+    return binarySearch(search,array)
+  }
 }
 
 // linear search
