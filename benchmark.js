@@ -2,9 +2,9 @@ var Benchmark = require('benchmark');
 var binary = require('./binary');
 var linier = require('./linear_search');
 
-var arraySatuK = []
-var arraySepuluhK = []
-var arraySejuta = []
+var arraySatuK = [];
+var arraySepuluhK = [];
+var arraySejuta = [];
 
 for (let i = 0; i < 100; i++) {
   arraySatuK.push(i);
@@ -17,7 +17,7 @@ for (let i = 0; i < 1000000; i++) {
 }
 
 let test = [arraySatuK, arraySepuluhK, arraySejuta];
-let search = Math.floor(Math.random() * 100)
+let search = Math.floor(Math.random() * 100);
 let testNameBinary = ['Binary#test1K', 'Binary#test10K', 'Binary#testSejuta'];
 let testNameLinier = ['Linier#test1K', 'Linier#test10K', 'Linier#testSejuta'];
 
