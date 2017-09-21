@@ -1,5 +1,7 @@
 var Benchmark = require('benchmark');
-var suite = new Benchmark.Suite;
+var testSuite0 = new Benchmark.Suite;
+var testSuite1 = new Benchmark.Suite;
+var testSuite2 = new Benchmark.Suite;
 
 function ownSort(arr) {
   // Your sorting code
@@ -71,11 +73,11 @@ function test(){
   random_numbers=ownSort(random_numbers);
   //console.log(random_numbers);
   testNum = random_numbers[Math.round(Math.random()*i)];
-  suite.add('LinearTest', function() {
-    linearSearch(testNum,random_numbers);
+  testSuite0.add('LinearTest', function() {
+    linearSearch(random_numbers[testNum],random_numbers);
   })
   .add('BinaryTest', function() {
-    binary_search(testNum, random_numbers);
+    binary_search(random_numbers[testNum], random_numbers);
   })
 
   // add listeners
@@ -88,16 +90,17 @@ function test(){
   // run async
   .run({ 'async': false });
 //------------------------------------
+  console.log();
   i=nArr[1];
 //---------------------------------------
   random_numbers = generateRandNArr(i);
   random_numbers=ownSort(random_numbers);
   testNum = random_numbers[Math.round(Math.random()*i)];
-  suite.add('LinearTest', function() {
-    linearSearch(testNum,random_numbers);
+  testSuite1.add('LinearTest', function() {
+    linearSearch(random_numbers[testNum],random_numbers);
   })
   .add('BinaryTest', function() {
-    binary_search(testNum, random_numbers);
+    binary_search(random_numbers[testNum], random_numbers);
   })
 
   // add listeners
@@ -110,16 +113,16 @@ function test(){
   // run async
   .run({ 'async': false });
 //------------------------------------
+  console.log();
   i=nArr[2];
 //---------------------------------------
   random_numbers = generateRandNArr(i);
   random_numbers=ownSort(random_numbers);
   testNum = random_numbers[Math.round(Math.random()*i)];
-  suite.add('LinearTest', function() {
-    linearSearch(testNum,random_numbers);
-  })
-  .add('BinaryTest', function() {
-    binary_search(testNum, random_numbers);
+  testSuite2.add('BinaryTest', function() {
+    binary_search(random_numbers[testNum], random_numbers);
+  }).add('LinearTest', function() {
+    linearSearch(random_numbers[testNum],random_numbers);
   })
 
   // add listeners
